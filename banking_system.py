@@ -9,7 +9,7 @@ WITHDRAW_LIMIT = 3
 
 while True:
 
-    # Menu inicial
+# Menu inicial
     print('''
 =============== M A Z E B A N K ===============
                  OF LOS SANTOS
@@ -25,7 +25,7 @@ while True:
 
     user = input('Your choice: ')
 
-    # Opção de Deposito
+# Opção de Deposito
     if user == '1':
         print('''
 =============== Welcome: User =================
@@ -38,13 +38,13 @@ How much you want to deposit?
         if money > 0:  
             balance += money
             log += f'Deposit: R$ {money:.2f}\n'
-            print('Operation successfully! Returning to the main menu.')
+            print('\nOperation successfully! Returning to the main menu.')
             time.sleep(3)
         else:
-            print('Invalid operation. The entered value is incorrect.')
+            print('\nInvalid operation. The entered value is incorrect.')
             time.sleep(3)
 
-    # Operação de Saque
+# Operação de Saque
     elif user == '2':
         print('''
 =============== Welcome: User =================
@@ -59,23 +59,23 @@ How much you want to withdraw?
         exceeded_withdraw = limit_withdraw >= WITHDRAW_LIMIT
 
         if exceeded_balance:
-            print('Operation failed. You do not have money in your account.')
+            print('\nOperation failed. You do not have money in your account.')
             time.sleep(3)
         elif exceeded_limit:
-            print('Operation failed. Withdrawal amount exceeded account limit.')
+            print('\nOperation failed. Withdrawal amount exceeded account limit.')
             time.sleep(3)
         elif exceeded_withdraw:
-            print('Operation failed. Maximum withdrawals have been exceeded.')
+            print('\nOperation failed. Maximum withdrawals have been exceeded.')
             time.sleep(3)
         elif money > 0:
             balance -= money
             log += f'Withdraw: R$ {money:.2f}\n'
             limit_withdraw += 1
-            print('Operation successfully! Returning to the main menu.')
+            print('\nOperation successfully! Returning to the main menu.')
             time.sleep(3)
 
         else:
-            print('Operation failed. The entered value is invalid.')
+            print('\nOperation failed. The entered value is invalid.')
             time.sleep(3)
 
     elif user == '3':
@@ -84,7 +84,7 @@ How much you want to withdraw?
             
 Your transaction history:
     ''')
-        print('Não foram realizadas movimentações.' if not log else log)
+        print('There are no logs of bank transactions in this account.' if not log else log)
         print(f'Balance: R$ {balance:.2f}\n')
         print('Returning to the main menu.')
         time.sleep(5)
